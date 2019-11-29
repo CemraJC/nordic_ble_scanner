@@ -898,9 +898,9 @@ int main(int argc, char * argv[])
 				<< "  START			- Start sending discovered BLE advertisements in real-time" << std::endl
 				<< "  STOP			- Stop sending" << std::endl
 				<< "  FILTER_NAME <str>	- Filter device names. Names filtered by if they contain <str>." << std::endl
-				<< "					  To stop filtering, set <str> to empty (send 'FILTER_NAME ')" << std::endl
+				<< "			  To stop filtering, set <str> to empty (send 'FILTER_NAME ')" << std::endl
 				<< "  FILTER_MAC <str>	- Filter device MAC. Filtered by if they start with <str>." << std::endl
-				<< "					  To stop filtering, set <str> to empty (send 'FILTER_MAC ')" << std::endl
+				<< "			  To stop filtering, set <str> to empty (send 'FILTER_MAC ')" << std::endl
 				<< "  QUIT			- Force the server to exit" << std::endl
 				<< std::endl
 				<< "Device names are provided in the format <MAC>,<name> where <MAC> is the device address" << std::endl
