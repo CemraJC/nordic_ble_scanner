@@ -181,7 +181,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\nrf-ble-driver-4.1.1-win_x86_32\lib\nrf-ble-driver-sd_api_v3-mt-static-4_1_1.lib">
+    <Library Include="..\nrf-ble-driver-4.1.1-win_x86_32\lib\nrf-ble-driver-sd_api_v3-mt-static-4_1_1.lib">
       <Filter>Source Files</Filter>
     </Library>
   </ItemGroup>

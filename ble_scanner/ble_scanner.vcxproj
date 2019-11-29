@@ -72,14 +72,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\ble\ble_scanner\ble_scanner\sockpp;C:\ble\nrf-ble-driver-4.1.1-win_x86_32\include\sd_api_v3;C:\ble\ble_scanner\ble_scanner;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)\..\nrf-ble-driver-4.1.1-win_x86_32\include\sd_api_v3;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\ble\ble_scanner\ble_scanner\sockpp;C:\ble\nrf-ble-driver-4.1.1-win_x86_32\include\sd_api_v3;C:\ble\ble_scanner\ble_scanner;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)\..\nrf-ble-driver-4.1.1-win_x86_32\include\sd_api_v3;$(MSBuildProjectDirectory);$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -211,7 +211,7 @@
     <ClCompile Include="stream_socket.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\nrf-ble-driver-4.1.1-win_x86_32\lib\nrf-ble-driver-sd_api_v3-mt-static-4_1_1.lib" />
+    <Library Include="..\nrf-ble-driver-4.1.1-win_x86_32\lib\nrf-ble-driver-sd_api_v3-mt-static-4_1_1.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
