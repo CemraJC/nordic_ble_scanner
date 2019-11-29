@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{C19CC051-A243-4A41-AB95-C164EADC673A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>blescanner</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\ble\ble_scanner\ble_scanner\sockpp;C:\ble\nrf-ble-driver-4.1.1-win_x86_32\include\sd_api_v3;C:\ble\ble_scanner\ble_scanner;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\ble\ble_scanner\ble_scanner\sockpp;C:\ble\nrf-ble-driver-4.1.1-win_x86_32\include\sd_api_v3;C:\ble\ble_scanner\ble_scanner;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;PC_BLE_DRIVER_STATIC;_CRT_SECURE_NO_WARNINGS;NRF_SD_BLE_API=3;_CONSOLE</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;PC_BLE_DRIVER_STATIC;_CRT_SECURE_NO_WARNINGS;NRF_SD_BLE_API=3;_CONSOLE</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\adapter.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_err.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_gap.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_gatt.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_gattc.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_gatts.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_hci.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_l2cap.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_ranges.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\ble_types.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\compiler_abstraction.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\nrf.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\nrf_error.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\nrf_svc.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\platform.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\sd_rpc.h" />
+    <ClInclude Include="..\..\nrf-ble-driver-4.1.1-win_x86_64\include\sd_api_v3\sd_rpc_types.h" />
+    <ClInclude Include="..\include\cxxopts.hpp" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="ScannerClient.h" />
+    <ClInclude Include="sockpp\acceptor.h" />
+    <ClInclude Include="sockpp\connector.h" />
+    <ClInclude Include="sockpp\datagram_socket.h" />
+    <ClInclude Include="sockpp\exception.h" />
+    <ClInclude Include="sockpp\inet6_address.h" />
+    <ClInclude Include="sockpp\inet_address.h" />
+    <ClInclude Include="sockpp\platform.h" />
+    <ClInclude Include="sockpp\socket.h" />
+    <ClInclude Include="sockpp\sock_address.h" />
+    <ClInclude Include="sockpp\stream_socket.h" />
+    <ClInclude Include="sockpp\tcp6_acceptor.h" />
+    <ClInclude Include="sockpp\tcp6_connector.h" />
+    <ClInclude Include="sockpp\tcp6_socket.h" />
+    <ClInclude Include="sockpp\tcp_acceptor.h" />
+    <ClInclude Include="sockpp\tcp_connector.h" />
+    <ClInclude Include="sockpp\tcp_socket.h" />
+    <ClInclude Include="sockpp\udp6_socket.h" />
+    <ClInclude Include="sockpp\udp_socket.h" />
+    <ClInclude Include="sockpp\unix_acceptor.h" />
+    <ClInclude Include="sockpp\unix_address.h" />
+    <ClInclude Include="sockpp\unix_connector.h" />
+    <ClInclude Include="sockpp\unix_dgram_socket.h" />
+    <ClInclude Include="sockpp\unix_stream_socket.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acceptor.cpp" />
+    <ClCompile Include="ble_scanner.cpp" />
+    <ClCompile Include="connector.cpp" />
+    <ClCompile Include="datagram_socket.cpp" />
+    <ClCompile Include="exception.cpp" />
+    <ClCompile Include="inet6_address.cpp" />
+    <ClCompile Include="inet_address.cpp" />
+    <ClCompile Include="ScannerClient.cpp" />
+    <ClCompile Include="socket.cpp" />
+    <ClCompile Include="stream_socket.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\nrf-ble-driver-4.1.1-win_x86_32\lib\nrf-ble-driver-sd_api_v3-mt-static-4_1_1.lib" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
