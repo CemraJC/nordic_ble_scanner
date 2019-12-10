@@ -297,12 +297,12 @@ static void ble_address_to_string_convert(ble_gap_addr_t address, uint8_t * stri
 	const int address_length = 6;
 	char      temp_str[3];
 
-	for (int i = 0; i < address_length; ++i)
+	for (int i = address_length - 1; i >= 0; --i)
 	{
 		sprintf(temp_str, "%02X", address.addr[i]);
 		strcat((char *)string_buffer, temp_str);
 
-		if (i < address_length - 1) 
+		if (i > 0) 
 		{
 			strcat((char *)string_buffer, ":");
 		}
@@ -699,7 +699,7 @@ static void on_client(sockpp::tcp_socket socket) {
 		{
 			// Set final newline to a null (if exists) to allow netcat debugging
 			for (int i = 0; i < CLIENT_CMD_BUFFER && buff[i] != '\0'; ++i) {
-				if (buff[i] == '\n') {
+				if (buff[i] == '\n' || buff[i] == '\r') {
 					buff[i] = '\0';
 				}
 			}
