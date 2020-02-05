@@ -71,10 +71,12 @@
 
 static void on_client(sockpp::tcp_socket socket);
 
+int main(int argc, char * argv[]);
+
 /** Definitions */
 #define DEFAULT_BAUD_RATE 1000000 /**< The baud rate to be used for serial communication with nRF5 device. */
 #define VERSION_MAJOR 1
-#define VERSION_MINOR 0
+#define VERSION_MINOR 1
 
 #ifdef _WIN32
 #define DEFAULT_UART_PORT_NAME "COM1"
@@ -116,6 +118,8 @@ enum
 #define STRING_BUFFER_SIZE 256
 #define CLIENT_CMD_BUFFER 512
 #define LOG_BUFFER_SIZE 512
+
+#define RETURN_ERROR 1
 
 typedef struct
 {
@@ -680,7 +684,6 @@ static uint32_t server_mode_executive() {
 }
 
 /** Event functions */
-
 static void on_client(sockpp::tcp_socket socket) {
 
 	// Create a client, and transfer it into the queue.
@@ -689,6 +692,18 @@ static void on_client(sockpp::tcp_socket socket) {
 	client_access_lock.lock();
 	clients.push_back(&client);
 	client_access_lock.unlock();
+
+
+	ble_gap_addr_t addr;
+	sd_ble_gap_addr_get(m_adapter, &addr);
+	if (addr.addr_type != 1)
+	{
+		// Abort program - adapter has disconnected
+		log(SD_RPC_LOG_DEBUG, "SERVER: BLE adapter is not registered to the system. Check connection and restart.");
+		server_exit.unlock();
+		server.close();
+		return;
+	}
 
 	while (socket.is_open())
 	{
@@ -747,8 +762,13 @@ static void on_client(sockpp::tcp_socket socket) {
 		}
 		else 
 		{
-			// Read error, exit the loop
-			log(SD_RPC_LOG_ERROR, ("CLIENT: Read error " + socket.last_error_str()).c_str());
+			if (socket.last_error() == WSAECONNRESET) {
+				// We expect a connection reset when the client disconnects - don't report
+				break;
+			}
+
+			// Otherwise, read or socket error, exit the loop
+			log(SD_RPC_LOG_ERROR, ("CLIENT: " + socket.last_error_str()).c_str());
 			break;
 		}
 	}
@@ -831,7 +851,6 @@ static void on_adv_report(const ble_gap_evt_t * const p_ble_gap_evt)
 
 
 /** Event dispatcher */
-
 /**@brief Function for handling the Application's BLE Stack events.
  *
  * @param[in] adapter The transport adapter.
@@ -961,12 +980,20 @@ int main(int argc, char * argv[])
 	CHECK_ERROR(error_code);
 
 	// Perform mode as required
-	if (in_server_mode())
+	try 
 	{
-		return server_mode_executive();
+		if (in_server_mode())
+		{
+			return server_mode_executive();
+		}
+		else // Local mode, accept character control inputs
+		{
+			return local_mode_executive();
+		}
 	}
-	else // Local mode, accept character control inputs
+	catch (std::exception e)
 	{
-		return local_mode_executive();
+		log(SD_RPC_LOG_ERROR, "Runtime exception: %s", e.what());
+		return RETURN_ERROR;
 	}
 }
